@@ -9,6 +9,12 @@
         {!! Form::label('content', 'メッセージ') !!}
         {!! Form::text('content') !!}
         
+        {!! Form::label('status', 'ステータス') !!}
+        {!! Form::select('status', [
+                                    '未完了' => '未完了',
+                                    '着手中' => '着手中',
+                                    '完了' => '完了',
+                                    ]) !!}
         {!! Form::submit('更新') !!}
 
     {!! Form::close() !!}

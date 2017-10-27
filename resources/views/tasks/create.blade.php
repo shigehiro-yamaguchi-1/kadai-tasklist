@@ -1,23 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-
     <h1>タスク新規作成ページ</h1>
-    
-    {!! Form::model($task, ['route' => 'tasks.store']) !!}
+    <div class="row">
+        <!--スクリーンサイズに合わせてリサイズ-->
+        <div class="col-xs-12
+                    col-sm-offset-2 col-sm-8
+                    col-md-offset-2 col-md-8
+                    col-lg-offset-3 col-lg-6">
 
-        {!! Form::label('content', 'メッセージ') !!}
-        {!! Form::text('content') !!}
+            {!! Form::model($task, ['route' => 'tasks.store']) !!}
         
-        {!! Form::label('status', 'ステータス') !!}
-        {!! Form::select('status', [
-                                    '未完了' => '未完了',
-                                    '着手中' => '着手中',
-                                    '完了' => '完了',
-                                    ], '未完了') !!}
+                <div class="form-group">
+                    {!! Form::label('content', 'メッセージ') !!}
+                    {!! Form::text('content', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('status', 'ステータス') !!}
+                    {!! Form::select('status', [
+                                                '未完了' => '未完了',
+                                                '着手中' => '着手中',
+                                                '完了' => '完了',
+                                                ], '未完了', ['class' => 'form-control']) !!}
+                </div>
+        
+                {!! Form::submit('作成', ['class' => 'btn btn-primary']) !!}
+        
+            {!! Form::close() !!}
 
-        {!! Form::submit('作成') !!}
-
-    {!! Form::close() !!}
-
+        </div>
+    </div>
 @endsection
